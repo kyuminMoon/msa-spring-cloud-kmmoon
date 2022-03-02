@@ -12,6 +12,7 @@ buildscript {
     dependencies {
         classpath("io.spring.gradle:dependency-management-plugin:1.0.11.RELEASE")
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.springframework.cloud:spring-cloud-dependencies:${springCloudDependenciesVersion}")
     }
 }
 
@@ -54,6 +55,7 @@ subprojects {
 project(':user-service') {
     dependencies {
         implementation project(':common')
+        implementation project(':core-web')
         implementation 'org.springframework.boot:spring-boot-starter-web-services'
         implementation 'org.springframework.boot:spring-boot-starter-web'
     }
@@ -77,13 +79,10 @@ project(':user-service') {
 //}
 
 /* 공통 모듈 */
-//project(':core-web') {
-//    dependencies {
-//        compile project(':common')
-//        compile project(':domain-rds')
-//        compile 'org.springframework.boot:spring-boot-devtools'
-//    }
-//}
+project(':core-web') {
+    dependencies {
+    }
+}
 
 project(':common') {
     dependencies {
@@ -105,6 +104,13 @@ project(':config') {
 }
 
 project(':eureka') {
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-web-services'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+    }
+}
+
+project(':admin') {
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter-web-services'
         implementation 'org.springframework.boot:spring-boot-starter-web'

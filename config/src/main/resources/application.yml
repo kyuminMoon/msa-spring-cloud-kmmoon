@@ -1,0 +1,28 @@
+# 예제 참고
+# https://cheese10yun.github.io/spring-config-server/
+
+server:
+  port: 8091
+
+spring:
+  application.name: config
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/kyuminMoon/msa-spring-cloud-config-kmmoon
+#          username: ${git_id:happycloudpak}
+#          password: ${git_pw:happy@cloud0}
+#          search-paths:
+#            - '{application}/*'                       #base directory to search profiles
+#            - '{application}'
+#            - '/*'
+#          default-label: ${git_branch:master}      #git branch
+#          ignoreLocalSshSettings: true
+#          private-key: |
+#            -----BEGIN RSA PRIVATE KEY-----
+#            ....
+#            -----END RSA PRIVATE KEY-----
+
+management.endpoints.web.exposure.include: health, metrics, bus-refresh  # Actuator endpoints

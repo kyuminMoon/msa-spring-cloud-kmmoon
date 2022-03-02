@@ -1,0 +1,11 @@
+# https://otrodevym.tistory.com/entry/spring-boot-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0-22-spring-cloud-sleuth%EC%99%80-zipkin-%EC%84%A4%EC%A0%95-%EB%B0%8F-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%86%8C%EC%8A%A4
+spring:
+  sleuth:
+    sampler:
+      probability: 1.0 # 기본값 0.1  샘플링 정의 0~1(100%)
+  zipkin:
+    base-url: http://127.0.0.1:9411/
+
+  config:
+    import:
+      - "optional:configserver:http://localhost:8091"

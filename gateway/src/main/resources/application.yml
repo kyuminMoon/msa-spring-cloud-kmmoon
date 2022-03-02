@@ -5,9 +5,16 @@ spring:
   application:
     name: gateway
 
+  sleuth:
+    sampler:
+      probability: 1.0 # 기본값 0.1  샘플링 정의 0~1(100%)
+  zipkin:
+    base-url: http://127.0.0.1:9411/
+
   config:
     import:
       - "optional:configserver:http://localhost:8091"
+
   cloud:
     gateway:
       discovery:
