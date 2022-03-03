@@ -1,9 +1,18 @@
 server:
-  port: 8900
+  port: 8901
 
-security.oauth2.client.client-id: auth_id
-security.oauth2.client.client-secret: auth_secret
-security.oauth2.resource.jwt.key-value: jwt_secret_key
+spring:
+  application:
+    name: auth-service
 
-spring.h2.console.enabled: true
-spring.h2.console.path: /h2-console
+  h2.console:
+    enabled: true
+    path: /h2-console
+
+security.oauth2:
+  client:
+    client-id: auth_id
+    client-secret: auth_secret
+
+  resource.jwt.key-value: jwt_secret_key
+
