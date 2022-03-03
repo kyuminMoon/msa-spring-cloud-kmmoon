@@ -1,4 +1,4 @@
-package com.kmmoon.user;
+package com.kmmoon.restaurant;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,10 +12,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 //@EnableCircuitBreaker
 @EnableDiscoveryClient
 @RefreshScope
-public class UserApplication {
+public class RestaurantApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(UserApplication.class, args);
+        SpringApplication.run(RestaurantApplication.class, args);
     }
 
 }

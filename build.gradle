@@ -60,6 +60,42 @@ project(':user-service') {
         implementation 'org.springframework.boot:spring-boot-starter-web'
     }
 }
+
+project(':restaurant-service') {
+    dependencies {
+        implementation project(':common')
+        implementation project(':core-web')
+        implementation 'org.springframework.boot:spring-boot-starter-web-services'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+    }
+}
+
+project(':pay-service') {
+    dependencies {
+        implementation project(':common')
+        implementation project(':core-web')
+        implementation 'org.springframework.boot:spring-boot-starter-web-services'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+    }
+}
+
+project(':order-service') {
+    dependencies {
+        implementation project(':common')
+        implementation project(':core-web')
+        implementation 'org.springframework.boot:spring-boot-starter-web-services'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+    }
+}
+
+project(':customer-service') {
+    dependencies {
+        implementation project(':common')
+        implementation project(':core-web')
+        implementation 'org.springframework.boot:spring-boot-starter-web-services'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+    }
+}
 /* SERVICE */
 
 /* RDS */
@@ -86,10 +122,11 @@ project(':core-web') {
 
 project(':common') {
     dependencies {
-        implementation 'org.springframework.boot:spring-boot-starter-web-services'
         implementation 'org.springframework.boot:spring-boot-starter-web'
     }
 }
+/* 공통 모듈 */
+
 
 project(':gateway') {
     dependencies {
@@ -98,22 +135,24 @@ project(':gateway') {
 
 project(':config') {
     dependencies {
-        implementation 'org.springframework.boot:spring-boot-starter-web-services'
         implementation 'org.springframework.boot:spring-boot-starter-web'
     }
 }
 
 project(':eureka') {
     dependencies {
-        implementation 'org.springframework.boot:spring-boot-starter-web-services'
         implementation 'org.springframework.boot:spring-boot-starter-web'
     }
 }
 
 project(':admin') {
     dependencies {
-        implementation 'org.springframework.boot:spring-boot-starter-web-services'
         implementation 'org.springframework.boot:spring-boot-starter-web'
     }
 }
-/* 공통 모듈 */
+
+project(':auth') {
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+    }
+}

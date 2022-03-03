@@ -1,2 +1,5 @@
 rootProject.name = 'msa'
-include 'core-web', 'common', 'gateway', 'config', 'eureka', 'user-service', 'admin' //'domain-rds', 'domain-mongo', 'payment-api', 'seller-api'
+include 'core-web', 'common', 'gateway', 'config', 'eureka', 'admin', 'auth',
+        'user-service', 'restaurant-service', 'pay-service', 'order-service', 'customer-service';
+
+//'domain-rds', 'domain-mongo', 'payment-api', 'seller-api'

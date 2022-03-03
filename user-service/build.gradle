@@ -17,6 +17,8 @@ dependencies {
     implementation 'org.springdoc:springdoc-openapi-ui:1.6.6'
 //    implementation 'org.springdoc:springdoc-openapi-security:1.6.6'
 
+    implementation 'de.codecentric:spring-boot-admin-starter-client:2.6.2'
+
     implementation "io.micrometer:micrometer-registry-prometheus"
 
     /* ribbon */
