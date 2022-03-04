@@ -8,7 +8,7 @@ dependencies {
 
     implementation "org.springframework.cloud:spring-cloud-sleuth-zipkin"
     implementation "org.springframework.cloud:spring-cloud-starter-config"
-    implementation "de.codecentric:spring-boot-admin-starter-client"
+    implementation "de.codecentric:spring-boot-admin-starter-client:2.6.2"
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'

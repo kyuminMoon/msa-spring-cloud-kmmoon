@@ -5,6 +5,26 @@ spring:
   application:
     name: user-service
 
+  devtools:
+    livereload:
+      enabled: true
+
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/test
+    driver-class-name: org.h2.Driver
+    username: sa
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    properties.hibernate.hbm2ddl.auto: update
+    showSql: true
+
   config:
     import:
       - "optional:configserver:http://localhost:8091"
@@ -12,6 +32,17 @@ spring:
     admin:
       client:
         url: http://localhost:18080
+
+security:
+  oauth2:
+#    jwt:
+#      signkey: 123@#$
+    resource:
+      token-info-uri: http://localhost:8901/oauth/check_token
+
+    client:
+      client-id: clientId
+      client-secret: clientSecret
 
 eureka:
   instance:

@@ -24,11 +24,10 @@ spring:
     hibernate:
       ddl-auto: create-drop
 
-  oauth2:
-    jwt:
-      signkey: 123@#$
 security:
   oauth2:
+#    jwt:
+#      signkey: 123@#$
     authorization:
       check-token-access: isAuthenticated()
 #    client:

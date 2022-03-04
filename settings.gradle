@@ -1,5 +1,5 @@
 rootProject.name = 'msa'
 include 'core-web', 'common', 'gateway', 'config', 'eureka', 'admin', 'auth',
-        'user-service', 'restaurant-service', 'pay-service', 'order-service', 'customer-service';
-
-//'domain-rds', 'domain-mongo', 'payment-api', 'seller-api'
+        'user-service', 'restaurant-service', 'pay-service', 'order-service', 'customer-service',
+        'domain-rds'
+//'domain-mongo'

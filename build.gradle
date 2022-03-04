@@ -156,3 +156,9 @@ project(':auth') {
         implementation 'org.springframework.boot:spring-boot-starter-web'
     }
 }
+
+project(':domain-rds') {
+    dependencies {
+    }
+}
+
