@@ -3,9 +3,10 @@ package com.kmmoon.auth.security;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository ("UserDao")
-public interface UserDao extends JpaRepository<User, Integer> {
+import java.util.Optional;
 
-	User findByUsername(String username);
+public interface UserRepository extends JpaRepository<User, Integer> {
+
+	Optional<User> findByEmail(String email);
 
 }
