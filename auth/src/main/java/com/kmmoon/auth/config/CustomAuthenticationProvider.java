@@ -1,7 +1,7 @@
 package com.kmmoon.auth.config;
 
-import com.kmmoon.auth.security.User;
-import com.kmmoon.auth.security.UserRepository;
+import com.kmmoon.domain.entity.user.User;
+import com.kmmoon.domain.entity.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
