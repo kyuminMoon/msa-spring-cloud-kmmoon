@@ -11,8 +11,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 
 @SpringBootApplication(scanBasePackages = "com.kmmoon.*")
 @EnableFeignClients
-//@RibbonClients
-//@EnableCircuitBreaker
 @EnableDiscoveryClient
 @RefreshScope
 public class UserApplication implements CommandLineRunner {

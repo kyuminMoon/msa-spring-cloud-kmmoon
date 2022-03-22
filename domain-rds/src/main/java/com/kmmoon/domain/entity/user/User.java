@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
@@ -19,6 +20,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 @Builder
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "users")
@@ -30,6 +32,7 @@ public class User implements UserDetails {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
+	@Email
 	@Column(nullable = false, length = 100)
 	private String email;
 
@@ -40,12 +43,14 @@ public class User implements UserDetails {
 	@Column(length = 100)
 	private String password;
 
+	@Enumerated(EnumType.STRING)
+	private AccountType accountType;
+
 	@CreationTimestamp
 	private LocalDateTime createdAt;
 
 	@UpdateTimestamp
 	private LocalDateTime lastModifiedAt;
-
 
 	@ElementCollection(fetch = FetchType.EAGER)
 	@Builder.Default
@@ -86,6 +91,16 @@ public class User implements UserDetails {
 	public boolean isEnabled() {
 		return true;
 	}
+
+	@AllArgsConstructor
+	@NoArgsConstructor
+	public enum AccountType {
+		SELLER("판매자"),
+		MEMBER("구매자");
+
+		private String value;
+	}
+
 }
 
 

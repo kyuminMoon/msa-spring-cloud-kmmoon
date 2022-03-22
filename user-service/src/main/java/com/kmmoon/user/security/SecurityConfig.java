@@ -1,14 +1,11 @@
 package com.kmmoon.user.security;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
@@ -27,8 +24,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/configuration/**")//
                 .antMatchers("/webjars/**")//
                 .antMatchers("/public")
-
-                // Un-secure H2 Database (for testing purposes, H2 console shouldn't be unprotected in production)
                 .and()
                 .ignoring()
                 .antMatchers("/h2-console/**/**");
@@ -36,24 +31,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // Disable CSRF (cross site request forgery)
+        // CSRF 비활성화(교차 사이트 요청 위조)
         http.csrf().disable();
 
-        // No session will be created or used by spring security
+        // 세션쿠키 방식의 인증 메카니즘으로 인증처리를 하지 않음
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
-        // Entry points
-        http.authorizeRequests()//
+        http.authorizeRequests()
+                // 허용 페이지
                 .antMatchers("/h2-console/**/**").permitAll()
                 .antMatchers("/actuator/**").permitAll()
                 .antMatchers("/actuator").permitAll()
-                // Disallow everything else..
+                // 다른건 다 불허
                 .anyRequest().authenticated();
 
-        // If a user try to access a resource without having enough permissions
+        // 사용자가 권한 없이 리소스에 액세스하려고 하는 경우
 //        http.exceptionHandling().accessDeniedPage("/users/signup");
 
-        // Optional, if you want to test the API from a browser
-        // http.httpBasic();
     }
 }

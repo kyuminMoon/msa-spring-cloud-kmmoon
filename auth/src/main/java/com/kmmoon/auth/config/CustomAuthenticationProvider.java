@@ -8,13 +8,11 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import java.util.Collection;
+import java.util.Arrays;
 
 @RequiredArgsConstructor
 @Component
@@ -31,6 +29,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         User user = userRepository.findByEmail(name).orElseThrow(() -> new UsernameNotFoundException("user is not exists"));
         if (!passwordEncoder.matches(password, user.getPassword()))
             throw new BadCredentialsException("password is not valid");
+        user.setRoles(Arrays.asList(user.getAccountType().toString()));
         return new UsernamePasswordAuthenticationToken(name, password, user.getAuthorities());
     }
 

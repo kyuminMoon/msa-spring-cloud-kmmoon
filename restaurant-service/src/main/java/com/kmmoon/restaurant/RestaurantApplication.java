@@ -8,8 +8,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableFeignClients
-//@RibbonClients
-//@EnableCircuitBreaker
 @EnableDiscoveryClient
 @RefreshScope
 public class RestaurantApplication {
