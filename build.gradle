@@ -13,6 +13,8 @@ buildscript {
         classpath("io.spring.gradle:dependency-management-plugin:1.0.11.RELEASE")
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath("org.springframework.cloud:spring-cloud-dependencies:${springCloudDependenciesVersion}")
+        classpath("gradle.plugin.com.ewerk.gradle.plugins:querydsl-plugin:1.0.10")
+
     }
 }
 
@@ -40,8 +42,6 @@ subprojects {
         implementation 'org.modelmapper:modelmapper:2.3.5'
         /* modelmapper */
 
-        implementation 'gradle.plugin.com.ewerk.gradle.plugins:querydsl-plugin:1.0.10'
-
         compileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok'
 
@@ -56,7 +56,6 @@ project(':user-service') {
     dependencies {
         implementation project(':common')
         implementation project(':core-web')
-        implementation 'org.springframework.boot:spring-boot-starter-web-services'
         implementation 'org.springframework.boot:spring-boot-starter-web'
     }
 }
@@ -65,7 +64,6 @@ project(':restaurant-service') {
     dependencies {
         implementation project(':common')
         implementation project(':core-web')
-        implementation 'org.springframework.boot:spring-boot-starter-web-services'
         implementation 'org.springframework.boot:spring-boot-starter-web'
     }
 }
@@ -74,7 +72,6 @@ project(':pay-service') {
     dependencies {
         implementation project(':common')
         implementation project(':core-web')
-        implementation 'org.springframework.boot:spring-boot-starter-web-services'
         implementation 'org.springframework.boot:spring-boot-starter-web'
     }
 }
@@ -83,7 +80,6 @@ project(':order-service') {
     dependencies {
         implementation project(':common')
         implementation project(':core-web')
-        implementation 'org.springframework.boot:spring-boot-starter-web-services'
         implementation 'org.springframework.boot:spring-boot-starter-web'
     }
 }
@@ -92,7 +88,6 @@ project(':customer-service') {
     dependencies {
         implementation project(':common')
         implementation project(':core-web')
-        implementation 'org.springframework.boot:spring-boot-starter-web-services'
         implementation 'org.springframework.boot:spring-boot-starter-web'
     }
 }
